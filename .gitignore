@@ -1,0 +1,7 @@
+*.exe
+*.ilk
+*.pdb
+*.vs
+mcclone/Debug
+KindOfMinecraft/Debug
+*.vcxproj.user
