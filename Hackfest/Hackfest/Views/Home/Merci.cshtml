@@ -1,0 +1,40 @@
+﻿@model Hackfest.Models.Invitation
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <title>Merci</title>
+    <style>
+        body {
+            background-color: #bf4b4b;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <h1>Merci @Model.Nom !</h1>
+        <div class="lead">
+            @if (Model.SeraPrésent == true)
+            {
+                @:Merci énormément ! Nous avons hâte de vous voir :)
+            }
+            else
+            {
+                @:Merci de nous avertir de votre abscence, au plaisir de se revoir l'année prochaine !
+            }
+            <p>
+                <a href="@Url.Action("AfficherRSVP", "Home")">Voir</a> la liste des autres participant au Hackfest.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+

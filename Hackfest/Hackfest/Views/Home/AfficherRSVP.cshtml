@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Hackfest.Models.Invitation> 
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <title>AfficherRSVP</title>
+    <style>
+        body {
+            background-color: #bf4b4b;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel-body">
+        <h2>Voici la liste des autres participant au Hackfest : </h2>
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Prénom : </th>
+                    <th>Nom : </th>
+                    <th>Courriel : </th>
+                    <th>Affiliation : </th>
+                    <th>Date d'inscription : </th>
+                    <th>Montant : </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Hackfest.Models.Invitation i in Model)
+                {
+                <tr>
+                    <td>@i.Prénom</td>
+                    <td>@i.Nom</td>
+                    <td>@i.Courriel</td>
+                    <td>@i.Affiliation</td>
+                    <td>@i.DateInscription</td>
+                    <td>@i.Montant</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+

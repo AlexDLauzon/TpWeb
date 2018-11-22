@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <title>Index</title>
+    <style>
+        .btn a {
+            color: black;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #bf4b4b;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <h1>Bonjour à vous!</h1>
+        <h2>Vous vous trouvez présentement sur la page d'inscription du Hackfest !</h2>
+        <h3>Suivez les instructions pour vous inscrire.</h3>
+        <div class="btn btn-success">
+            @Html.ActionLink("RSVP", "FormulaireRSVP")
+        </div>
+    </div>
+</body>
+</html>
+
