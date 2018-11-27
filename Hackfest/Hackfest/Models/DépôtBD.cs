@@ -4,22 +4,22 @@ namespace Hackfest.Models
 {
     public sealed class DépôtBD : IDépôt
     {
-        private ContexteBD contexte;
-        public DépôtBD(ContexteBD p_contexte)
+        private ContexteTP contexte;
+        public DépôtBD(ContexteTP p_contexte)
         {
             contexte = p_contexte;
         }
-        public IQueryable<Réponse> Réponses() => contexte.Réponses;
+        public IQueryable<Participant> Réponses() => contexte.Participant;
 
-        public void AjouterRéponse(Réponse p_réponse)
+        public void AjouterParticipant(Participant p_réponse)
         {
             if (p_réponse.Id == 0)
             {
-                contexte.Réponses.Add(p_réponse);
+                contexte.Participant.Add(p_réponse);
             }
             else
             {
-                Réponse maRéponse = contexte.Réponses
+                Participant maRéponse = contexte.Participant
                 .FirstOrDefault(r => r.Id == p_réponse.Id);  
                 if (maRéponse != null)
                 {
@@ -28,30 +28,28 @@ namespace Hackfest.Models
                     maRéponse.Courriel = p_réponse.Courriel;
                     maRéponse.Affiliation = p_réponse.Affiliation;
                     maRéponse.DateInscription = p_réponse.DateInscription;
-                    maRéponse.Montant = p_réponse.Montant;
-                    maRéponse.SeraPrésent = p_réponse.SeraPrésent;
                 }
             }
             contexte.SaveChanges();
         }
 
-        public Réponse RetireRéponse(int p_idRéponse)
+        public Participant RetireParticipant(int p_idRéponse)
         {
-            Réponse maRéponse = contexte.Réponses
+            Participant maRéponse = contexte.Participant
             .FirstOrDefault(r => r.Id == p_idRéponse);
             if (maRéponse != null)
             {
-                contexte.Réponses.Remove(maRéponse);
+                contexte.Participant.Remove(maRéponse);
                 contexte.SaveChanges();
             }
             return maRéponse;
         }
 
-        public Réponse ObtientAvecNom(string p_nom)
+        public Participant ObtientAvecNom(string p_nom)
         {
             // TODO
             // Méthode bidon
-            return new Réponse() { Nom = p_nom};
+            return new Participant() { Nom = p_nom};
         }
 
         public void SoumettreChangements()

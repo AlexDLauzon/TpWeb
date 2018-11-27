@@ -1,4 +1,4 @@
-﻿@model Hackfest.Models.Invitation
+﻿@model Hackfest.Models.Participant
 
 @{
     Layout = null;
@@ -45,28 +45,10 @@
                     <label>Votre date d'inscription : (MM-JJ-AAAA)</label>
                     @Html.TextBoxFor(i => i.DateInscription, new { @class = "form-control" })
                 </div>
-                <div class="form-group">
+                @*<div class="form-group">
                     <label>Montant à payer :</label>
                     @Html.TextBoxFor(i => i.Montant, new { @class = "form-control" })
-                </div>
-                <div class="form-group">
-                    <label>Serez-vous présent ?</label>
-                    @Html.DropDownListFor(i => i.SeraPrésent,
-                        new[]
-                        {
-                            new SelectListItem()
-                            {
-                                Text = "Je serais présent !",
-                                Value = bool.TrueString
-                            },
-                            new SelectListItem()
-                            {
-                                Text = "Je serais abscent",
-                                Value = bool.FalseString
-                            }
-                        },
-                        "Choisissez une option", new { @class = "form-control" })
-                </div>
+                </div>*@
                 <div class="text-center">
                     <input class="btn btn-success" type="submit" value="Go" />
                 </div>

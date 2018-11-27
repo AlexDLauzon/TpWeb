@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Hackfest.Models.Invitation> 
+﻿@model IEnumerable<Hackfest.Models.Participant>
 
 @{
     Layout = null;
@@ -33,7 +33,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (Hackfest.Models.Invitation i in Model)
+                @foreach (Hackfest.Models.Participant i in Model)
                 {
                 <tr>
                     <td>@i.Prénom</td>
@@ -41,7 +41,7 @@
                     <td>@i.Courriel</td>
                     <td>@i.Affiliation</td>
                     <td>@i.DateInscription</td>
-                    <td>@i.Montant</td>
+                    @*<td>@i.Montant</td>*@
                 </tr>
                 }
             </tbody>

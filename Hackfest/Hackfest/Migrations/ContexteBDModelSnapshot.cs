@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Hackfest.Migrations
 {
-    [DbContext(typeof(ContexteBD))]
+    [DbContext(typeof(ContexteTP))]
     partial class ContexteBDModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -19,22 +19,27 @@ namespace Hackfest.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Hackfest.Models.Réponse", b =>
+            modelBuilder.Entity("Hackfest.Models.Participant", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Affiliation")
+                        .IsRequired();
+
                     b.Property<string>("Courriel")
                         .IsRequired();
+
+                    b.Property<DateTime>("DateInscription");
+
+                    b.Property<decimal>("Montant")
+                        .HasColumnType("decimal(10, 2)");
 
                     b.Property<string>("Nom")
                         .IsRequired();
 
-                    b.Property<bool?>("SeraPrésent")
-                        .IsRequired();
-
-                    b.Property<string>("Téléphone")
+                    b.Property<string>("Prénom")
                         .IsRequired();
 
                     b.HasKey("Id");

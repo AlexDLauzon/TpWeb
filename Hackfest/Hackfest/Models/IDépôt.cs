@@ -7,11 +7,11 @@ namespace Hackfest.Models
 {
     public interface IDépôt
     {
-        IQueryable<Réponse> Réponses();
+        IQueryable<Participant> Réponses();
 
-        void AjouterRéponse(Réponse p_réponse);
-        Réponse RetireRéponse(int p_idRéponse);
-        Réponse ObtientAvecNom(string p_nom);
+        void AjouterParticipant(Participant p_réponse);
+        Participant RetireParticipant(int p_idRéponse);
+        Participant ObtientAvecNom(string p_nom);
         void SoumettreChangements();
     }
 }

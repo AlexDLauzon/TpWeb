@@ -1,4 +1,4 @@
-﻿@model Hackfest.Models.Invitation
+﻿@model Hackfest.Models.Participant
 
 @{
     Layout = null;
@@ -22,7 +22,7 @@
     <div class="text-center">
         <h1>Merci @Model.Nom !</h1>
         <div class="lead">
-            @if (Model.SeraPrésent == true)
+            @*@if (Model.SeraPrésent == true)
             {
                 @:Merci énormément ! Nous avons hâte de vous voir :)
             }
@@ -32,7 +32,7 @@
             }
             <p>
                 <a href="@Url.Action("AfficherRSVP", "Home")">Voir</a> la liste des autres participant au Hackfest.
-            </p>
+            </p>*@
         </div>
     </div>
 </body>

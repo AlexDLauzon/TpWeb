@@ -18,11 +18,11 @@ namespace Hackfest.Controllers
         [HttpGet]
         public ViewResult FormulaireRSVP() => View();
         [HttpPost]
-        public ViewResult FormulaireRSVP(Réponse p_réponse)
+        public ViewResult FormulaireRSVP(Participant p_réponse)
         {
             if (ModelState.IsValid)
             {
-                dépôt.AjouterRéponse(p_réponse);
+                dépôt.AjouterParticipant(p_réponse);
                 return View("Merci", p_réponse);
             }
             else
@@ -34,14 +34,14 @@ namespace Hackfest.Controllers
 
         public ViewResult AfficherRSVP()
         {
-            return View(dépôt.Réponses().Where(r => r.SeraPrésent == true));
+            return View(dépôt.Réponses());
         }
         // Même méthode écrite différemment.
         // public ViewResult AfficherRSVP() => View(dépôt.Réponses.Where(r => r.SeraPrésent == true));
 
         public ActionResult MettreÀJourNom(string p_ancienNom, string p_nouveauNom)
         {
-            Réponse uneRéponse = dépôt.ObtientAvecNom(p_ancienNom);
+            Participant uneRéponse = dépôt.ObtientAvecNom(p_ancienNom);
             uneRéponse.Nom = p_nouveauNom;
             dépôt.SoumettreChangements();
             // TODO contruire une vue

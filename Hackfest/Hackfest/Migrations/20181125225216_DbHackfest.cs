@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Hackfest.Migrations
 {
-    public partial class Init : Migration
+    public partial class DbHackfest : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,10 +14,12 @@ namespace Hackfest.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Prénom = table.Column<string>(nullable: false),
                     Nom = table.Column<string>(nullable: false),
                     Courriel = table.Column<string>(nullable: false),
-                    Téléphone = table.Column<string>(nullable: false),
-                    SeraPrésent = table.Column<bool>(nullable: false)
+                    Affiliation = table.Column<string>(nullable: false),
+                    DateInscription = table.Column<DateTime>(nullable: false),
+                    Montant = table.Column<decimal>(type: "decimal(10, 2)", nullable: false)
                 },
                 constraints: table =>
                 {

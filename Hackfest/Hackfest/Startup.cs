@@ -18,7 +18,7 @@ namespace Hackfest
         {
             // ou ["Data:BonAnniversaireToto:ConnectionString"])); dans appsettings.json
             //var connexion = "Data Source=MBEAUREG-15159;Init Catalog=Anniversaire_v2;Integrated Security=True;Pooling=False";
-            services.AddDbContext<ContexteBD>
+            services.AddDbContext<ContexteTP>
                 (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/startup?view=aspnetcore-2.1

@@ -4,16 +4,16 @@ namespace Hackfest.Models
 {
     public static class Dépôt
     {
-        private static List<Invitation> réponses = new List<Invitation>();
+        private static List<Participant> participants = new List<Participant>();
 
-        public static IEnumerable<Invitation> Réponses // Changer IEnum pour IQueryable (quand on va avoir la bd)
+        public static IEnumerable<Participant> Participants // Changer IEnum pour IQueryable (quand on va avoir la bd)
         {
-            get { return réponses; }
+            get { return participants; }
         }
 
-        public static void AjouterRéponse(Invitation p_réponse)
+        public static void AjouterParticipant(Participant p_réponse)
         {
-            réponses.Add(p_réponse);
+            participants.Add(p_réponse);
         }
     }
 }
