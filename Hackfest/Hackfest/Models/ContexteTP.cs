@@ -16,16 +16,16 @@ namespace Hackfest.Models
         {
         }
 
-        //public virtual DbSet<Article> Article { get; set; }
-        //public virtual DbSet<Membre> Membre { get; set; }
-        //public virtual DbSet<MembreArticle> MembreArticle { get; set; }
-        //public virtual DbSet<Organisateur> Organisateur { get; set; }
+        public virtual DbSet<Article> Article { get; set; }
+        public virtual DbSet<Membre> Membre { get; set; }
+        public virtual DbSet<MembreArticle> MembreArticle { get; set; }
+        public virtual DbSet<Organisateur> Organisateur { get; set; }
         public virtual DbSet<Paiement> Paiement { get; set; }
         public virtual DbSet<Participant> Participant { get; set; }
-        //public virtual DbSet<Session> Session { get; set; }
-        //public virtual DbSet<Spécialité> Spécialité { get; set; }
-        //public virtual DbSet<VersionArticle> VersionArticle { get; set; }
-        /*
+        public virtual DbSet<Session> Session { get; set; }
+        public virtual DbSet<Spécialité> Spécialité { get; set; }
+        public virtual DbSet<VersionArticle> VersionArticle { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -34,41 +34,39 @@ namespace Hackfest.Models
                 optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=TP_GEC_21_11;Trusted_Connection=True;");
             }
         }
-        */
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<MembreArticle>(entity =>
-        //    {
-        //        entity.HasKey(c => new { c.IdArticle, c.IdMembre });
 
-        //        entity.HasOne(d => d.IdArticleNavigation)
-        //              .WithMany(p => p.MembreArticle)
-        //              .HasForeignKey(d => d.IdArticle)
-        //              .OnDelete(DeleteBehavior.Restrict);
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<MembreArticle>(entity =>
+            {
+                entity.HasKey(c => new { c.IdArticle, c.IdMembre });
 
-        //        entity.HasOne(d => d.IdMembreNavigation)
-        //              .WithMany(p => p.MembreArticle)
-        //              .HasForeignKey(d => d.IdMembre)
-        //              .OnDelete(DeleteBehavior.Restrict);
-        //    });
+                entity.HasOne(d => d.IdArticleNavigation)
+                      .WithMany(p => p.MembreArticles)
+                      .HasForeignKey(d => d.IdArticle)
+                      .OnDelete(DeleteBehavior.Restrict);
 
-        //    modelBuilder.Entity<Session>(entity =>
-        //    {
-        //        entity.HasKey(c => new { c.IdArticle, c.IdMembre });
+                entity.HasOne(d => d.IdMembreNavigation)
+                      .WithMany(p => p.MembreArticles)
+                      .HasForeignKey(d => d.IdMembre)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
 
-        //        entity.HasOne(d => d.IdArticleNavigation)
-        //              .WithMany(p => p.Session)
-        //              .HasForeignKey(d => d.IdArticle)
-        //              .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Session>(entity =>
+            {
+                entity.HasKey(c => new { c.IdArticle, c.IdMembre });
 
-        //        entity.HasOne(d => d.IdMembreNavigation)
-        //              .WithMany(p => p.Session)
-        //              .HasForeignKey(d => d.IdMembre)
-        //              .OnDelete(DeleteBehavior.Restrict);
-        //    });
+                entity.HasOne(d => d.IdArticleNavigation)
+                      .WithMany(p => p.Sessions)
+                      .HasForeignKey(d => d.IdArticle)
+                      .OnDelete(DeleteBehavior.Restrict);
 
+                entity.HasOne(d => d.IdMembreNavigation)
+                      .WithMany(p => p.Sessions)
+                      .HasForeignKey(d => d.IdMembre)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
 
-            /*
             modelBuilder.Entity<Article>(entity =>
             {
                 entity.HasKey(e => e.IdArticle);
@@ -104,8 +102,7 @@ namespace Hackfest.Models
                 entity.Property(e => e.IdParticipant).HasColumnName("id_participant");
 
                 entity.HasOne(d => d.IdParticipantNavigation)
-                    .WithMany(p => p.Membre)
-                    .HasForeignKey(d => d.IdParticipant)
+                    .WithOne(p => p.Membre)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("cé_membre_participant");
             });
@@ -126,13 +123,13 @@ namespace Hackfest.Models
                 entity.Property(e => e.Note).HasColumnName("note");
 
                 entity.HasOne(d => d.IdArticleNavigation)
-                    .WithMany(p => p.MembreArticle)
+                    .WithMany(p => p.MembreArticles)
                     .HasForeignKey(d => d.IdArticle)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("cé_ma_article");
 
                 entity.HasOne(d => d.IdMembreNavigation)
-                    .WithMany(p => p.MembreArticle)
+                    .WithMany(p => p.MembreArticles)
                     .HasForeignKey(d => d.IdMembre)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("cé_ma_membre");
@@ -160,8 +157,7 @@ namespace Hackfest.Models
                     .HasColumnName("rôle_organisateur");
 
                 entity.HasOne(d => d.IdParticipantNavigation)
-                    .WithMany(p => p.Organisateur)
-                    .HasForeignKey(d => d.IdParticipant)
+                    .WithOne(p => p.Organisateur)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("cé_organisateur_participant");
             });
@@ -223,11 +219,17 @@ namespace Hackfest.Models
 
             modelBuilder.Entity<Session>(entity =>
             {
-                entity.HasKey(e => e.IdSession);
+                entity.HasKey(e => e.IdArticle);
 
                 entity.ToTable("session");
 
-                entity.Property(e => e.IdSession).HasColumnName("id_session");
+                entity.Property(e => e.IdArticle).HasColumnName("id_article");
+
+                entity.HasKey(e => e.IdMembre);
+
+                entity.ToTable("session");
+
+                entity.Property(e => e.IdMembre).HasColumnName("id_membre");
 
                 entity.Property(e => e.DateSession)
                     .HasColumnName("date_session")
@@ -246,13 +248,13 @@ namespace Hackfest.Models
                     .HasColumnName("titre_session");
 
                 entity.HasOne(d => d.IdArticleNavigation)
-                    .WithMany(p => p.Session)
+                    .WithMany(p => p.Sessions)
                     .HasForeignKey(d => d.IdArticle)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("cé_session_article");
 
                 entity.HasOne(d => d.IdMembreNavigation)
-                    .WithMany(p => p.Session)
+                    .WithMany(p => p.Sessions)
                     .HasForeignKey(d => d.IdMembre)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("cé_session_membre");
@@ -273,7 +275,7 @@ namespace Hackfest.Models
                     .HasColumnName("spécialité");
 
                 entity.HasOne(d => d.IdMembreNavigation)
-                    .WithMany(p => p.Spécialité)
+                    .WithMany(p => p.Spécialités)
                     .HasForeignKey(d => d.IdMembre)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("cé_spécialité_membre");
@@ -301,12 +303,11 @@ namespace Hackfest.Models
                     .HasColumnName("url");
 
                 entity.HasOne(d => d.IdArticleNavigation)
-                    .WithMany(p => p.VersionArticle)
+                    .WithMany(p => p.VersionArticles)
                     .HasForeignKey(d => d.IdArticle)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("cé_va_article");
             });
-            */
-        //}
+        }
     }
 }

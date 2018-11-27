@@ -13,19 +13,19 @@ namespace Hackfest.Models
 
         public void AjouterParticipant(Participant p_réponse)
         {
-            if (p_réponse.Id == 0)
+            if (p_réponse.IdParticipant == 0)
             {
                 contexte.Participant.Add(p_réponse);
             }
             else
             {
                 Participant maRéponse = contexte.Participant
-                .FirstOrDefault(r => r.Id == p_réponse.Id);  
+                .FirstOrDefault(r => r.IdParticipant == p_réponse.IdParticipant);  
                 if (maRéponse != null)
                 {
-                    maRéponse.Prénom = p_réponse.Prénom;
-                    maRéponse.Nom = p_réponse.Nom;
-                    maRéponse.Courriel = p_réponse.Courriel;
+                    maRéponse.PrénomParticipant = p_réponse.PrénomParticipant;
+                    maRéponse.NomParticipant = p_réponse.NomParticipant;
+                    maRéponse.CourrielParticipant = p_réponse.CourrielParticipant;
                     maRéponse.Affiliation = p_réponse.Affiliation;
                     maRéponse.DateInscription = p_réponse.DateInscription;
                 }
@@ -36,7 +36,7 @@ namespace Hackfest.Models
         public Participant RetireParticipant(int p_idRéponse)
         {
             Participant maRéponse = contexte.Participant
-            .FirstOrDefault(r => r.Id == p_idRéponse);
+            .FirstOrDefault(r => r.IdParticipant == p_idRéponse);
             if (maRéponse != null)
             {
                 contexte.Participant.Remove(maRéponse);
@@ -49,7 +49,7 @@ namespace Hackfest.Models
         {
             // TODO
             // Méthode bidon
-            return new Participant() { Nom = p_nom};
+            return new Participant() { NomParticipant = p_nom};
         }
 
         public void SoumettreChangements()

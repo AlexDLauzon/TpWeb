@@ -11,7 +11,11 @@ namespace Hackfest.Models
     {
         [Key]
         public int IdPaiement { get; set; }
+        [Required(ErrorMessage = "SVP entrez le montant")]
+        [Range(1, 9000)]
+        [DataType(DataType.Currency)]
         public decimal? Montant { get; set; }
+        [Required(ErrorMessage = "SVP entrez la date de réception")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateRéceptionPaiement { get; set; }

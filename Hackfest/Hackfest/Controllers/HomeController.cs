@@ -42,7 +42,7 @@ namespace Hackfest.Controllers
         public ActionResult MettreÀJourNom(string p_ancienNom, string p_nouveauNom)
         {
             Participant uneRéponse = dépôt.ObtientAvecNom(p_ancienNom);
-            uneRéponse.Nom = p_nouveauNom;
+            uneRéponse.NomParticipant = p_nouveauNom;
             dépôt.SoumettreChangements();
             // TODO contruire une vue
             return View();

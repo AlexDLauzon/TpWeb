@@ -36,12 +36,11 @@
                 @foreach (Hackfest.Models.Participant i in Model)
                 {
                 <tr>
-                    <td>@i.Prénom</td>
-                    <td>@i.Nom</td>
-                    <td>@i.Courriel</td>
+                    <td>@i.PrénomParticipant</td>
+                    <td>@i.NomParticipant</td>
+                    <td>@i.CourrielParticipant</td>
                     <td>@i.Affiliation</td>
                     <td>@i.DateInscription</td>
-                    @*<td>@i.Montant</td>*@
                 </tr>
                 }
             </tbody>

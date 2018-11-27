@@ -10,35 +10,33 @@ namespace Hackfest.Models
 
         public Participant()
         {
-            //Article = new HashSet<Article>();
-            //Membre = new HashSet<Membre>();
-            //Organisateur = new HashSet<Organisateur>();
+            Article = new HashSet<Article>();
             Paiement = new HashSet<Paiement>();
         }
 
         [Key]
-        public int Id { get; set; }
+        public int IdParticipant { get; set; }
         [Required(ErrorMessage = "SVP entrez votre prénom")]
-        public string Prénom { get; set; }
+        public string PrénomParticipant { get; set; }
 
         [Required(ErrorMessage = "SVP entrez votre nom")]
-        public string Nom { get; set; }
+        public string NomParticipant { get; set; }
 
         [Required(ErrorMessage = "SVP entrez votre courriel")]
         [DataType(DataType.EmailAddress)]
         [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Veuillez entrer un courriel valide SVP.")] // Pour faire un mot de passe de 8 caractère, majuscule, 1 caractère entre !@#$%%?, etc...
-        public string Courriel { get; set; }
+        public string CourrielParticipant { get; set; }
 
-        [Required(ErrorMessage = "SVP faites un choix")]
+        [Required(ErrorMessage = "SVP entrez l'affiliation")]
         public string Affiliation { get; set; }
 
         [Required(ErrorMessage = "SVP entrez la date d'inscription")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "0:MM-dd-yyyy", ApplyFormatInEditMode = true)]
         public DateTime DateInscription { get; set; }
-        //public ICollection<Article> Article { get; set; }
-        //public Membre IdMembreNavigation { get; set; }
-        //public Organisateur organisateur { get; set; }
+        public ICollection<Article> Article { get; set; }
+        public Membre Membre { get; set; }
+        public Organisateur Organisateur { get; set; }
         public ICollection<Paiement> Paiement { get; set; }
     }
 }
