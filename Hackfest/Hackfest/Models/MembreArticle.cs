@@ -7,6 +7,6 @@ namespace Hackfest.Models
 {
     public class MembreArticle
     {
-        // Ici, y'a des Key qui sont aussi foreign key.
+        // Ici, y'a des Key qui sont aussi foreign key. ncdhbcdbcgvdcfdcdc
     }
 }
