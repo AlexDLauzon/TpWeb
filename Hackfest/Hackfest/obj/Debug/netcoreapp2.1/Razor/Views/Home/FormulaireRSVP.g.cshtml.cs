@@ -66,7 +66,7 @@ using Hackfest.Models;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
             BeginContext(94, 406, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "243b94f8dc7f4dfeaa8a55374d72a00b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "31b2fa365e584062aec57aac386d01da", async() => {
                 BeginContext(100, 303, true);
                 WriteLiteral(@"
     <link rel=""stylesheet"" href=""/css/styles.css"" />
@@ -76,7 +76,7 @@ using Hackfest.Models;
     ");
                 EndContext();
                 BeginContext(403, 51, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "1648e93a75754dd9af616d22e120da72", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "234aec2735b44b07a7c6442dcd3f9b8c", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -110,7 +110,7 @@ using Hackfest.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(502, 1768, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2d969a9034448509af077654def1376", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4370c47c1569461f973026dc87bbc58a", async() => {
                 BeginContext(508, 167, true);
                 WriteLiteral("\r\n    <div class=\"panel panel-success\">\r\n        <div class=\"panel-heading text-center\">\r\n            <h4>RSVP</h4>\r\n        </div>\r\n        <div class=\"panel-body\">\r\n");
                 EndContext();

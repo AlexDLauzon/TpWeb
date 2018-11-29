@@ -16,6 +16,9 @@ namespace Hackfest.Models
         [ForeignKey("IdParticipantNavigation")]
         public int IdParticipant { get; set; }
         [Required(ErrorMessage = "SVP entrez le mot de passe")]
+        [StringLength(8, MinimumLength = 8, ErrorMessage = "Votre mot de passe doit inclure au moins 8 caractères")]
+        [RegularExpression(@"^(?=.*\d).+$", ErrorMessage = "Votre mot de passe doit inclure au moins un chiffre")]
+        [DataType(DataType.Password)]
         public string MotDePasse { get; set; }
         [Required(ErrorMessage = "SVP entrez le rôle")]
         [EnumDataType(typeof(LesRolesOrganisateur), ErrorMessage = "Veuillez entrer une des quatre valeurs suivantes: " +

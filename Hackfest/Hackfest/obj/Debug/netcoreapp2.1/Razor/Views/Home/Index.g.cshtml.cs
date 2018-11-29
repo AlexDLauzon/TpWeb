@@ -60,7 +60,7 @@ using Hackfest.Models;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
             BeginContext(56, 526, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3afaeb28c5024d2b9e92e8d9d84b41d4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5990d13165294ccfb6d2cd4ab4714247", async() => {
                 BeginContext(62, 513, true);
                 WriteLiteral(@"
     <meta name=""viewport"" content=""width=device-width"" />
@@ -96,7 +96,7 @@ using Hackfest.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(584, 354, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bbec40d8fa94a658e1e6caec5778699", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7bf9122d62714b3396b94a1536330155", async() => {
                 BeginContext(590, 269, true);
                 WriteLiteral(@"
     <div class=""text-center"">
