@@ -107,3 +107,4 @@ D:\Visual Studios\TpWeb\Test\TpWeb\Hackfest\Hackfest\obj\Debug\netcoreapp2.1\Hac
 D:\Visual Studios\TpWeb\Test\TpWeb\Hackfest\Hackfest\obj\Debug\netcoreapp2.1\Hackfest.dll
 D:\Visual Studios\TpWeb\Test\TpWeb\Hackfest\Hackfest\obj\Debug\netcoreapp2.1\Hackfest.pdb
 D:\Visual Studios\TpWeb\Test\TpWeb\Hackfest\Hackfest\obj\Debug\netcoreapp2.1\Hackfest.csproj.CopyComplete
+D:\Visual Studios\TpWeb\Test\TpWeb\Hackfest\Hackfest\obj\Debug\netcoreapp2.1\Hackfest.csprojAssemblyReference.cache

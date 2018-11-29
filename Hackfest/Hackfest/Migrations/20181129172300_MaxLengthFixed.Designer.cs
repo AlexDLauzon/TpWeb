@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hackfest.Migrations
 {
     [DbContext(typeof(ContexteTP))]
-    [Migration("20181129141120_Upgrade")]
-    partial class Upgrade
+    [Migration("20181129172300_MaxLengthFixed")]
+    partial class MaxLengthFixed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

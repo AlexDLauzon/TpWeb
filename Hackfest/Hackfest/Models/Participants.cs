@@ -24,15 +24,17 @@ namespace Hackfest.Models
 
         [Required(ErrorMessage = "SVP entrez votre courriel")]
         [DataType(DataType.EmailAddress)]
-        [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Veuillez entrer un courriel valide SVP.")] // Pour faire un mot de passe de 8 caractère, majuscule, 1 caractère entre !@#$%%?, etc...
+        [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Veuillez entrer un courriel valide SVP.")]
+        [MaxLength(50)]
         public string CourrielParticipant { get; set; }
 
         [Required(ErrorMessage = "SVP entrez l'affiliation")]
+        [MaxLength(30)]
         public string Affiliation { get; set; }
 
         [Required(ErrorMessage = "SVP entrez la date d'inscription")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "0:MM-dd-yyyy", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "0:yyyy-MM-dd", ApplyFormatInEditMode = true)]
         public DateTime DateInscription { get; set; }
         public ICollection<Article> Article { get; set; }
         public Membre Membre { get; set; }

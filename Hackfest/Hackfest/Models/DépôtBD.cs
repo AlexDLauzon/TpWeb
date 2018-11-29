@@ -4,7 +4,7 @@ namespace Hackfest.Models
 {
     public sealed class DépôtBD : IDépôt
     {
-        private ContexteTP contexte;
+        private ContexteTP contexte = new ContexteTP();
         public DépôtBD(ContexteTP p_contexte)
         {
             contexte = p_contexte;

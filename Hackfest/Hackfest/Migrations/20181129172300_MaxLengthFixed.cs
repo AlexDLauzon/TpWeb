@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Hackfest.Migrations
 {
-    public partial class Upgrade : Migration
+    public partial class MaxLengthFixed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,8 +16,8 @@ namespace Hackfest.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     prénom_participant = table.Column<string>(nullable: false),
                     nom_participant = table.Column<string>(nullable: false),
-                    courriel_participant = table.Column<string>(maxLength: 1, nullable: false),
-                    affiliation = table.Column<string>(maxLength: 1, nullable: false),
+                    courriel_participant = table.Column<string>(nullable: false),
+                    affiliation = table.Column<string>(nullable: false),
                     date_inscription = table.Column<DateTime>(type: "date", nullable: false, defaultValueSql: "(getdate())")
                 },
                 constraints: table =>
@@ -32,7 +32,7 @@ namespace Hackfest.Migrations
                     id_article = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     id_participant = table.Column<int>(nullable: false),
-                    titre_article = table.Column<string>(unicode: false, maxLength: 1, nullable: false)
+                    titre_article = table.Column<string>(unicode: false, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,7 +71,7 @@ namespace Hackfest.Migrations
                     id_organisateur = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     id_participant = table.Column<int>(nullable: false),
-                    mot_de_passe = table.Column<string>(unicode: false, maxLength: 8, nullable: false),
+                    mot_de_passe = table.Column<string>(unicode: false, maxLength:30, nullable: false),
                     rôle_organisateur = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
