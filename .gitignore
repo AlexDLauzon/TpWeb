@@ -2,6 +2,7 @@
 *.ilk
 *.pdb
 *.vs
-mcclone/Debug
-KindOfMinecraft/Debug
 *.vcxproj.user
+*.project.assets.json
+*.obj.Debug
+*.obj
