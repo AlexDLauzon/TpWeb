@@ -6,3 +6,7 @@
 *.project.assets.json
 *.obj.Debug
 *.obj
+*\obj
+.cache
+.props
+.targets
