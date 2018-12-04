@@ -11501,23 +11501,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Poste\\.nuget\\packages\\": {},
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Visual Studios\\TpWeb\\Test\\TpWeb\\Hackfest\\Hackfest\\Hackfest.csproj",
+      "projectUniqueName": "D:\\Informatique Session 5\\Développement d'application web\\Cours 30\\TpWebTest\\Hackfest\\Hackfest\\Hackfest.csproj",
       "projectName": "Hackfest",
-      "projectPath": "D:\\Visual Studios\\TpWeb\\Test\\TpWeb\\Hackfest\\Hackfest\\Hackfest.csproj",
-      "packagesPath": "C:\\Users\\Poste\\.nuget\\packages\\",
-      "outputPath": "D:\\Visual Studios\\TpWeb\\Test\\TpWeb\\Hackfest\\Hackfest\\obj\\",
+      "projectPath": "D:\\Informatique Session 5\\Développement d'application web\\Cours 30\\TpWebTest\\Hackfest\\Hackfest\\Hackfest.csproj",
+      "packagesPath": "C:\\Users\\Utilisateur\\.nuget\\packages\\",
+      "outputPath": "D:\\Informatique Session 5\\Développement d'application web\\Cours 30\\TpWebTest\\Hackfest\\Hackfest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Poste\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Utilisateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
