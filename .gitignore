@@ -6,7 +6,11 @@
 *.project.assets.json
 *.obj.Debug
 *.obj
-*\obj
-.cache
-.props
-.targets
+*../obj
+*.cache
+*.props
+*.targets
+*.assets.json
+*.csproj.nuget.cache
+*.Hackfest.csproj.nuget.cache
+
